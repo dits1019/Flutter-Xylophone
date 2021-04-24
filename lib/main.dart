@@ -22,8 +22,8 @@ class MyApp extends StatelessWidget {
 
 class MyHomePage extends StatelessWidget {
   Widget playSound(Color color, String soundNum) {
-    return FlatButton(
-      color: color,
+    return ElevatedButton(
+      style: ButtonStyle(backgroundColor: MaterialStateProperty.all(color)),
       onPressed: () {
         final player = AudioCache();
         player.play('note$soundNum.wav');
@@ -37,6 +37,7 @@ class MyHomePage extends StatelessWidget {
     return Scaffold(
       body: SafeArea(
         child: Column(
+          crossAxisAlignment: CrossAxisAlignment.stretch,
           children: <Widget>[
             playSound(Colors.red, "1"),
             playSound(Colors.orange, "2"),
